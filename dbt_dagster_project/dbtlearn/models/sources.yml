@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: bg
+    schema: dbt_data
+    tables:
+      - name: listings
+        identifier: RAW_LISTINGS
+
+      - name: hosts
+        identifier: RAW_HOSTS
+
+      - name: reviews
+        identifier: RAW_REVIEWS
+        loaded_at_field: date
+        freshness:
+          warn_after: {count: 1, period: hour}
+          error_after: {count: 24, period: hour}
