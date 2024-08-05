@@ -375,7 +375,10 @@ dagster-user-deployments:
       # volumes:
       #   - name: my-volume
       #     configMap: my-config-map
-      volumes: []
+      volumes:
+        - name: duckdb-storage
+          persistentVolumeClaim:
+            claimName: duckdb-pvc
 
       # Additional volume mounts that should be included. See:
       # See: https://v1-18.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#volumemount-v1-core
@@ -386,7 +389,9 @@ dagster-user-deployments:
       #   - name: test-volume
       #     mountPath: /opt/dagster/test_folder
       #     subPath: test_file.yaml
-      volumeMounts: []
+      volumeMounts:
+        - name: duckdb-storage
+          mountPath: /opt/dagster/duckdb
 
       # Init containers to run before the main container. See:
       # https://kubernetes.io/docs/concepts/workloads/pods/init-containers/

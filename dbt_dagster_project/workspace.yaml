@@ -1,4 +1,0 @@
-load_from:
-  - python_file:
-      relative_path: dbt_dagster_project/definitions.py
-      location_name: dbt_dagster_project

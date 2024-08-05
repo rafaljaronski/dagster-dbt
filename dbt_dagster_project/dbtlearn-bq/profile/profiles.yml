@@ -1,0 +1,14 @@
+dbtlearn:
+  outputs:
+    dev:
+      dataset: dbt_data # BigQuery dataset ID
+      fixed_retries: 1
+      location: europe-west1 # Your GCP location
+      method: service-account # Authentication method
+      #keyfile: /opt/dagster/dbtsakey.json
+      priority: interactive
+      project: dbt-project-427314 # GCP project ID
+      threads: 1
+      timeout_seconds: 300
+      type: bigquery # SQL Backend used
+  target: dev

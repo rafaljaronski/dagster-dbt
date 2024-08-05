@@ -2,6 +2,7 @@ FROM python:3.10
 
 # Install dbt
 RUN pip install dbt-bigquery
+# RUN pip install dbt-duckdb duckdb
 RUN pip install -U uv
 # Install Dagster and Dagster-GCP
 RUN python -m uv pip install \
@@ -16,10 +17,10 @@ RUN python -m uv pip install \
 
 # COPY dbtlearn /opt/dagster/dbt-project
 COPY dbt_dagster_project /opt/dagster/dbt_dagster_project
-COPY pyproject.toml /opt/dagster/
-COPY workspace.yaml /opt/dagster/
+# COPY pyproject.toml /opt/dagster/
+# COPY workspace.yaml /opt/dagster/
 COPY dbtsakey.json /opt/dagster/
-COPY setup.py /opt/dagster/
+# COPY setup.py /opt/dagster/
 
 ENV DAGSTER_DBT_PARSE_PROJECT_ON_LOAD=1
 ENV DAGSTER_HOME=/opt/dagster

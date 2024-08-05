@@ -23,10 +23,7 @@ clean-targets: # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
 
-models:
-  dbtlearn:
-    example_model:
-      post-hook: "COPY (SELECT * FROM {{ this }}) TO 'gs://duckdb-storage/{{ this.name }}.parquet' (FORMAT PARQUET);"
+
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 
